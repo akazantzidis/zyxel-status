@@ -8,7 +8,7 @@ urllib3.disable_warnings()
 
 def login(username,password,ip):
     headers = {'Accept-Language' : 'en',}
-    url = "http://"+ip+"/login/login-page.cgi"
+    url = "https://"+ip+"/login/login-page.cgi"
     data = {'AuthName':username, 'AuthPassword':password}
     try:
         r = requests.post(url,data=data,headers=headers,verify=False) 
@@ -20,7 +20,7 @@ def login(username,password,ip):
 
 def get_dsl_stats(cookie,ip):
     headers = {'Accept-Language' : 'en', 'Cookie':'SESSION='+cookie}
-    url = "http://"+ip+"/pages/systemMonitoring/xdslStatistics/GetxdslStatistics.html"
+    url = "https://"+ip+"/pages/systemMonitoring/xdslStatistics/GetxdslStatistics.html"
     try:
         r = requests.get(url,headers=headers,verify=False)
     except ConnectionError as e:
